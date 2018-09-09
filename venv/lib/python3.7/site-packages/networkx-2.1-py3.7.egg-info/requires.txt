@@ -1,0 +1,12 @@
+decorator>=4.1.0
+
+[all]
+numpy
+scipy
+pandas
+matplotlib
+pygraphviz
+pydot
+pyyaml
+gdal
+lxml
