@@ -22,7 +22,7 @@ class Infomap():
         Partition network with the Infomap algorithm.
         Annotates nodes with 'community' id and return number of communities found.
         """
-        infomapWrapper = infomap.Infomap("--two-level --undirected")
+        infomapWrapper = infomap.Infomap("--two-level --directed")
         network = infomapWrapper.network()
 
         print("Building Infomap network from a NetworkX graph...")
@@ -144,31 +144,51 @@ class Infomap():
             neighbourList.append(neighbour)
         return neighbourList
 
+results = open("results3.txt", 'a')
 obj = Graph()
-graph = obj.createGraph("Data//coauthorship.txt")
+graph = obj.createGraph("Data//google.txt")
 
-print("Network info:")
-print("Nodes:{}, Edges:{}, Self loops:{}".format(graph.number_of_nodes(), graph.number_of_edges(), graph.number_of_selfloops()))
-print("Graph type: " + "undirected" if graph.is_directed() == False else "directed")
-print("Is multigraph? - {}".format(graph.is_multigraph()))
+#results.write("Network info:")
+#results.write("\n")
+#results.write("Nodes:{}, Edges:{}, Self loops:{}".format(graph.number_of_nodes(), graph.number_of_edges(), graph.number_of_selfloops()))
+#results.write("\n")
+#results.write("Graph type: " + "undirected" if graph.is_directed() == False else "directed")
+#results.write("\n")
+#results.write("Is multigraph? - {}".format(graph.is_multigraph()))
+#results.write("\n")
 
 a = Infomap(graph)
+#a.visualize(graph)
+#
 
-# print("Number of connected components: {}".format(a.getNumberOfConnectedComponents(graph)))
-# print("Number of weakly connected components: {}".format(a.getNumberOfWeaklyConnectedComponents(graph)) if graph.is_directed() else "Weakly connected components not implemented for undirected case")
-# print("Number of Isolates: {}".format(a.getNumberOfIsolates(graph)))
-# print("Degree Centrality: {}".format(a.getDegreeCentrality(graph)))
-# print("Betweeness Centrality: {}".format(a.getBetweenessCentrality(graph)))
+#results.write("Number of connected components: {}".format(a.getNumberOfConnectedComponents(graph)))
+#results.write("\n")
+#results.write("Number of weakly connected components: {}".format(a.getNumberOfWeaklyConnectedComponents(graph)) if graph.is_directed() else "Weakly connected components not implemented for undirected case")
+#results.write("\n")
+#results.write("Number of Isolates: {}".format(a.getNumberOfIsolates(graph)))
+#results.write("\n")
+#results.write("Degree Centrality: {}".format(a.getDegreeCentrality(graph)))
+#results.write("\n")
+#results.write("Betweeness Centrality: {}".format(a.getBetweenessCentrality(graph)))
 # print(a.getNeighbours(graph,1))
 # for component in a.getConnectedComponents(graph):
 #     subgraph = Graph()
 #     for neighbours in component:
 #     print("Diameter of {} is: {}\n".format(component,"pass"))
-print("Closeness centrality: {}".format(a.getClosenessCentrality(graph)))
-print("Katz centrality: {}".format(a.getKatzCentrality(graph)))
-print("Pagerank: {}".format(a.getPageRank(graph)))
-print("Triangles: {}".format(a.getTriangles(graph)))
-print("All Pairs Shortest Path: {}".format(a.getAllPairsShortestPath(graph)))
-print("All Pairs Shortest Connectivity: {}".format(a.getAllPairsNodeConnectivity(graph)))
-print("Network bridges: {}".format(a.getBridges(graph)))
-print("All Connected Components: {}".format(a.getConnectedComponents(graph)))
+results.write("\n")
+#results.write("Closeness centrality: {}".format(a.getClosenessCentrality(graph)))
+#results.write("\n")
+#results.write("Katz centrality: {}".format(a.getKatzCentrality(graph)))
+#results.write("\n")
+#results.write("Pagerank: {}".format(a.getPageRank(graph)))
+#results.write("\n")
+#results.write("Triangles: {}".format(a.getTriangles(graph)))
+#results.write("\n")
+#results.write("All Pairs Shortest Path: {}".format(a.getAllPairsShortestPath(graph)))
+#results.write("\n")
+#results.write("All Pairs Shortest Connectivity: {}".format(a.getAllPairsNodeConnectivity(graph)))
+#results.write("\n")
+#results.write("Network bridges: {}".format(a.getBridges(graph)))
+#results.write("\n")
+#results.write("All Connected Components: {}".format(a.getConnectedComponents(graph)))
+

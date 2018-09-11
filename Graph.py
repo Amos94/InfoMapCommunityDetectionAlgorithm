@@ -2,10 +2,10 @@ import networkx as nx
 
 class Graph():
 
-    graph = nx.Graph()
+    graph = nx.DiGraph()
 
     def __init__(self):
-        self.graph = nx.Graph()
+        self.graph = nx.DiGraph()
 
     def createGraph(self, filename):
         file = open(filename, 'r')
